@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Painel de Administração — Portal da Transparência</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="admstyle.css">
+</head>
+<body>
+
+<div class="layout-admin">
+
+  <!-- BARRA LATERAL -->
+  <aside class="barra-lateral" role="navigation" aria-label="Menu lateral">
+    <h2 class="barra-lateral__titulo">Transparência</h2>
+    <nav class="menu-lateral">
+      <a href="#Transparencia" class="item-menu item-ativo" data-pagina="Transparencia">Visão Geral</a>
+      <a href="#Despesas" class="item-menu" data-pagina="Despesas">Despesas</a>
+      <a href="#Receitas" class="item-menu" data-pagina="Receitas">Receitas</a>
+      <a href="#Licitacoes" class="item-menu" data-pagina="Licitacoes">Licitações</a>
+      <a href="#Contratos" class="item-menu" data-pagina="Contratos">Contratos</a>
+      <a href="#Servidores" class="item-menu" data-pagina="Servidores">Servidores</a>
+      <a href="#Obras" class="item-menu" data-pagina="Obras">Obras</a>
+      <a href="#LAI" class="item-menu" data-pagina="LAI">LAI (Pedidos)</a>
+      <a href="#configuracoes" class="item-menu" data-pagina="configuracoes">Configurações</a>
+    </nav>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main>
+
+    <!-- Cabeçalho do painel -->
+    <div class="cabecalho-painel">
+      <h1 style="text-align:left;margin:0;">Portal da Transparência — Administração</h1>
+    </div>
+
+    <div class="corpo-painel">
+
+      <!-- PÁGINA: Visão Geral -->
+      <section id="Transparencia" class="pagina">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Opções — Visão Geral</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Nova Publicação</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Novo Documento</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Nova Pasta</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Exportar Dados</p></div>
+        </div>
+
+        <div class="secao" style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-top:1rem;">
+          <div class="widget-card">
+            <h3 class="widget-card__titulo">Indicadores do Portal</h3>
+            <div class="previsao-clima">
+              <div class="previsao-dia">
+                <div class="previsao-dia__titulo">Publicações</div>
+                <div class="previsao-dia__temperatura">1.284</div>
+              </div>
+              <div class="previsao-dia">
+                <div class="previsao-dia__titulo">Atualizações (30d)</div>
+                <div class="previsao-dia__temperatura">312</div>
+              </div>
+              <div class="previsao-dia">
+                <div class="previsao-dia__titulo">Pendências</div>
+                <div class="previsao-dia__temperatura">18</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget-card">
+            <h3 class="widget-card__titulo">Ações rápidas</h3>
+            <div style="display:grid;gap:.75rem;">
+              <a class="documento" href="#Despesas"><p class="documento__nome">Importar Despesas (CSV)</p><span class="documento__download">➜</span></a>
+              <a class="documento" href="#Receitas"><p class="documento__nome">Lançar Receita Manual</p><span class="documento__download">➜</span></a>
+              <a class="documento" href="#Licitacoes"><p class="documento__nome">Publicar Edital</p><span class="documento__download">➜</span></a>
+              <a class="documento" href="#Contratos"><p class="documento__nome">Adicionar Contrato</p><span class="documento__download">➜</span></a>
+              <a class="documento" href="#Servidores"><p class="documento__nome">Enviar Folha (PDF)</p><span class="documento__download">➜</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Despesas -->
+      <section id="Despesas" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Despesas — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Importar Empenhos</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Lançar Liquidações</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Pagamentos</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Conferência e Auditoria</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Lançamentos recentes</h3>
+          <div style="display:grid;gap:.75rem;grid-template-columns:1fr 1fr;">
+            <a class="documento"><p class="documento__nome">Empenho 2025NE000123 — Saúde — R$ 58.420,00</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Pagamento 2025OB000077 — Educação — R$ 12.800,00</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Liquidação 2025LI000045 — Obras — R$ 102.300,00</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Estorno 2025ES000006 — Administração — R$ 1.250,00</p><span class="documento__download">➜</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Receitas -->
+      <section id="Receitas" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Receitas — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Arrecadação Própria</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Transferências</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Restituições</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Conciliação Bancária</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Entradas recentes</h3>
+          <div style="display:grid;gap:.75rem;">
+            <a class="documento"><p class="documento__nome">IPTU — R$ 9.430,00 (cota única)</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">FPM — R$ 312.000,00 (Parcela 11/2025)</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">ICMS — R$ 127.540,00</p><span class="documento__download">⬇</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Licitações -->
+      <section id="Licitacoes" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Licitações — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Novo Edital</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Julgamento/Resultado</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Impugnações</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Sessões Públicas</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Editais em andamento</h3>
+          <div style="display:grid;gap:.75rem;">
+            <a class="documento"><p class="documento__nome">PE 027/2025 — Aquisição de Medicamentos</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">TP 005/2025 — Reforma da Creche Modelo</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">DL 014/2025 — Manutenção de Veículos</p><span class="documento__download">➜</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Contratos -->
+      <section id="Contratos" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Contratos — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Cadastrar Contrato</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Aditivos e Termos</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Fiscalização</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Encerramentos</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Contratos recentes</h3>
+          <div style="display:grid;gap:.75rem;">
+            <a class="documento"><p class="documento__nome">Contrato 112/2025 — Limpeza Urbana — R$ 1.240.000,00</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">Termo Aditivo 112/2025-1 — Reajuste 4,2%</p><span class="documento__download">⬇</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Servidores -->
+      <section id="Servidores" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Servidores — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Folha de Pagamento</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Cargos e Salários</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Diárias e Passagens</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Transparência de RH</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Arquivos publicados</h3>
+          <div style="display:grid;gap:.75rem;grid-template-columns:1fr 1fr;">
+            <a class="documento"><p class="documento__nome">Folha — Outubro/2025 (PDF)</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">Diárias — Outubro/2025 (CSV)</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">Quadro de Pessoal — 2025</p><span class="documento__download">⬇</span></a>
+            <a class="documento"><p class="documento__nome">Relação de Estagiários — 2025</p><span class="documento__download">⬇</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Obras -->
+      <section id="Obras" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Obras — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Cadastrar Obra</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Medições</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Fotos e Relatórios</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Prestação de Contas</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Obras em execução</h3>
+          <div style="display:grid;gap:.75rem;">
+            <a class="documento"><p class="documento__nome">Praça Central — 65% concluída — Previsão: 03/2026</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Pavimentação Bairro Azul — 42% — Previsão: 08/2026</p><span class="documento__download">➜</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: LAI -->
+      <section id="LAI" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">LAI — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Novo Pedido</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Responder e Classificar</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Recursos</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Relatórios de Atendimento</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Pedidos recentes</h3>
+          <div style="display:grid;gap:.75rem;grid-template-columns:1fr 1fr;">
+            <a class="documento"><p class="documento__nome">#4521 — Cópia de notas fiscais — Status: Em análise</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">#4519 — Gastos com viagens — Status: Respondido</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">#4516 — Contratos vigentes — Status: Em andamento</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">#4511 — Obras 2024-2025 — Status: Em recurso</p><span class="documento__download">➜</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA: Configurações -->
+      <section id="configuracoes" class="pagina oculto">
+        <div class="servicos__topicos">
+          <h2 class="secao-titulo">Configurações — opções principais</h2>
+
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Áreas Visíveis</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Permissões</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Integrações</p></div>
+          <div class="servico"><div class="servico__icone"></div><p class="servico__nome">Agendamentos</p></div>
+        </div>
+
+        <div class="widget-card" style="margin-top:1rem;">
+          <h3 class="widget-card__titulo">Preferências rápidas</h3>
+          <div style="display:grid;gap:.75rem;">
+            <a class="documento"><p class="documento__nome">Idiomas habilitados: PT-BR</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Fuso horário: América/Cuiabá</p><span class="documento__download">➜</span></a>
+            <a class="documento"><p class="documento__nome">Formato de moeda: R$</p><span class="documento__download">➜</span></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- SCRIPT para alternar páginas sem recarregar -->
+<script>
+(function () {
+  function mostrar(paginaId) {
+    document.querySelectorAll('.pagina').forEach(function(sec){ sec.classList.add('oculto'); });
+    var alvo = document.getElementById(paginaId);
+    if (alvo) { alvo.classList.remove('oculto'); }
+    document.querySelectorAll('.item-menu').forEach(function(a){ a.classList.remove('item-ativo'); });
+    var linkAtivo = document.querySelector('.item-menu[data-pagina="'+paginaId+'"]');
+    if (linkAtivo) { linkAtivo.classList.add('item-ativo'); }
+  }
+
+  // Clique na barra lateral
+  document.querySelectorAll('.item-menu').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = a.getAttribute('data-pagina');
+      history.replaceState(null, '', '#'+id);
+      mostrar(id);
+    });
+  });
+
+  // Suporte a hash direto (ex.: ...#Licitacoes)
+  var inicial = (location.hash || '#Transparencia').replace('#','');
+  mostrar(inicial);
+
+  // Reage a mudanças de hash (ex.: voltar/avançar do navegador)
+  window.addEventListener('hashchange', function(){
+    var id = (location.hash || '#Transparencia').replace('#','');
+    mostrar(id);
+  });
+})();
+</script>
+</body>
+</html>

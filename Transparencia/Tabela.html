@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despesa</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modal.css">
+    <link rel="stylesheet" href="tabela.css">
+    <script src="../Scripts/Breadcrumb.js"></script>
+</head>
+<body>
+
+    <nav class="navegacao">
+        <a href="../index.html">
+            <img class="navegacao__logo"
+                src="https://site.sorriso.mt.gov.br/storage/app/uploads/public/68f/293/151/68f293151f5c6079842921.png"
+                alt="Logo do Município">
+        </a>
+
+        <ul class="navegacao__menu">
+            <a class="navegacao__item">Página Inicial</a>
+            <a class="navegacao__item">Sobre a Cidade</a>
+            <details class="navegacao__dropdown">
+                <summary class="navegacao__dropdown-titulo">Secretarias</summary>
+                <ul class="navegacao__dropdown-menu">
+                    <a class="navegacao__dropdown-item">Gabinete do Prefeito</a>
+                    <a class="navegacao__dropdown-item">Controladoria Geral do Município</a>
+                    <a class="navegacao__dropdown-item">Procuradoria Geral do Município</a>
+                    <a class="navegacao__dropdown-item">Secretaria de Saúde e saneamento básico</a>
+                    <a class="navegacao__dropdown-item">Secretaria da Cidade</a>
+                    <a class="navegacao__dropdown-item">Secretaria de Obras e Transporte</a>
+                    <a class="navegacao__dropdown-item">Secretaria da Mulher</a>
+                </ul>
+            </details>
+            <a class="navegacao__item" href="Transparencia.html">Portal Transparência</a>
+            <a class="navegacao__item">Carta de Serviço</a>
+            <details class="navegacao__dropdown">
+                <summary class="navegacao__dropdown-titulo">Servidor</summary>
+                <ul class="navegacao__dropdown-menu">
+                    <a class="navegacao__dropdown-item">Portal do Servidor</a>
+                    <a class="navegacao__dropdown-item">Folha de Pagamento</a>
+                    <a class="navegacao__dropdown-item">Código de Ética</a>
+                </ul>
+            </details>
+            <details class="navegacao__dropdown">
+                <summary class="navegacao__dropdown-titulo">Empresas</summary>
+                <ul class="navegacao__dropdown-menu">
+                    <a class="navegacao__dropdown-item">Nota Fiscal</a>
+                    <a class="navegacao__dropdown-item">acitação</a>
+                    <a class="navegacao__dropdown-item">Contratos</a>
+                    <a class="navegacao__dropdown-item">Tributação</a>
+                </ul>
+            </details>
+            <a class="navegacao__item">Ouvidoria</a>
+            <a class="navegacao__item">
+                <div class="FaixaAzul"></div>
+            </a>
+        </ul>
+    </nav>
+
+    <section class="container-principal">
+        <h2 class="secao-titulo">Tabela de Despesas</h2>
+        <div class="SecaoHistorico breadcrumb" aria-label="Breadcrumb" style="margin-top: 20px;">
+            <ol id="bc-list"></ol>
+        </div>
+    </section>
+
+    <section id="filtros-despesas" class="container-principal filtros">
+        <h2 class="secao-titulo">Filtrar Despesas</h2>
+
+        <form id="form-filtros" class="filtros-grid">
+            <div class="campo">
+                <label for="f-data-inicio">Data inicial</label>
+                <input type="date" id="f-data-inicio">
+            </div>
+
+            <div class="campo">
+                <label for="f-data-fim">Data final</label>
+                <input type="date" id="f-data-fim">
+            </div>
+
+            <div class="campo">
+                <label for="f-empenho">Por empenho</label>
+                <input type="text" id="f-empenho" placeholder="Ex.: 000123">
+            </div>
+
+            <div class="campo">
+                <label for="f-favorecido">Por favorecido</label>
+                <input type="text" id="f-favorecido" placeholder="Nome do favorecido">
+            </div>
+
+            <div class="campo">
+                <label for="f-orgao">Por órgão</label>
+                <input type="text" id="f-orgao" placeholder="Ex.: Secretaria de Administração">
+            </div>
+
+            <div class="campo">
+                <label for="f-ano">Por ano</label>
+                <input type="number" id="f-ano" placeholder="2025" min="1900" max="2100">
+            </div>
+
+            <div class="campo">
+                <label for="f-valor-min">Valor mín.</label>
+                <input type="text" id="f-valor-min" placeholder="Ex.: 1.000,00">
+            </div>
+
+            <div class="campo">
+                <label for="f-valor-max">Valor máx.</label>
+                <input type="text" id="f-valor-max" placeholder="Ex.: 5.000,00">
+            </div>
+
+            <div class="campo">
+                <label for="f-despesa">Por despesa</label>
+                <input type="text" id="f-despesa" placeholder="Ex.: Material de Consumo">
+            </div>
+
+            <div class="campo busca-especifica">
+                <label for="f-valor-exato">Pesquisar valor específico</label>
+                <input type="text" id="f-valor-exato" placeholder="Ex.: 5.000,00">
+            </div>
+
+            <div class="acoes">
+                <button class="btn btn-aplicar" id="btn-aplicar">Aplicar filtros</button>
+                <button class="btn btn-limpar" id="btn-limpar" type="button">Limpar</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="banner-principal container-principal" id="tabela">
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Ano</th>
+                    <th>Data</th>
+                    <th>Tipo de Empenho</th>
+                    <th>Órgão</th>
+                    <th>Elemento da Despesa</th>
+                    <th>Classificação da Despesa</th>
+                    <th>CNPJ/CPF</th>
+                    <th>Favorecido</th>
+                    <th>Empenho</th>
+                    <th>Detalhe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td><a href="#modal" role="button" class="button button__link">📄</a></td>
+                </tr>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td>📄</td>
+                </tr>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td>📄</td>
+                </tr>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td>📄</td>
+                </tr>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td>📄</td>
+                </tr>
+                <tr>
+                    <td>000000</td>
+                    <td>2025</td>
+                    <td>11/11/2025</td>
+                    <td>Global</td>
+                    <td>Secretaria de Administração</td>
+                    <td>Material de Consumo</td>
+                    <td>Fornecedores</td>
+                    <td>00.000.000/0001-00</td>
+                    <td>Empresa 01</td>
+                    <td>5.000,00</td>
+                    <td>📄</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-wrapper" id="modal">
+        <div class="modal-body">
+            <div class="modal-header">
+                <a href="#tabela" role="button" class="close" aria-label="Fechar modal">
+                    X
+                </a>
+            </div>
+            <div>
+                <ul class="topicosContainer">
+                    <a class="topicos" href="#">Informações Detalhadas</a>
+                    <a class="topicos" href="#">Arquivos</a>
+                    <a class="topicos" href="#">Dados Detalhados</a>
+                    <a class="topicos" href="#">Fases Relacionadas</a>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="tabela">Número: <p>0001</p></li>
+                    <li class="tabela">Ano: <p>2025</p></li>
+                    <li class="tabela">Data: <p>11/11/2025</p></li>
+                    <li class="tabela">Tipo de Empenho: <p>Global</p></li>
+                    <li class="tabela">Órgão: <p>Secretaria de Administração</p></li>
+                    <li class="tabela">Elemento da Despesa: <p>Materal de Consumo</p></li>
+                    <li class="tabela">Classificação da Despesa: <p>Fornecedores</p></li>
+                    <li class="tabela">CNPJ/CPF: <p>00.000/0001-00</p></li>
+                    <li class="tabela">Favorecido: <p>Empresa 01</p></li>
+                    <li class="tabela">Empenho: <p>5.000,00</p></li>
+                </ul>
+            </div>
+        </div>
+        <a href="#tabela" class="outside-trigger"></a>
+    </div>
+
+    <script>
+        const parseBRDate = (ddmmyyyy = '') => {
+            const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(ddmmyyyy);
+            if (!m) return null;
+            const [_, d, mo, y] = m; // eslint-disable-line no-unused-vars
+            return new Date(parseInt(y, 10), parseInt(mo, 10) - 1, parseInt(d, 10));
+        };
+        const norm = (s = '') => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+
+        // Índices das colunas (ajuste se mudar a ordem)
+        const COL = {
+            ANO: 1,
+            DATA: 2,
+            TIPO: 3,
+            ORGAO: 4,
+            ELEMENTO: 5,
+            CLASSIF: 6,
+            CNPJ: 7,
+            FAV: 8,
+            EMPENHO: 9
+        };
+
+
+        function aplicaFiltros() {
+            const tb = document.getElementById('tabela-despesas');
+            if (!tb) return;
+            const rows = Array.from(tb.tBodies[0].rows);
+
+
+            const dtIni = parseBRDate(document.getElementById('f-data-inicio').value.split('-').reverse().join('/'));
+            const dtFim = parseBRDate(document.getElementById('f-data-fim').value.split('-').reverse().join('/'));
+            const empenho = norm(document.getElementById('f-empenho').value);
+            const vMin = BRL_toNumber(document.getElementById('f-valor-min').value);
+            const vMax = BRL_toNumber(document.getElementById('f-valor-max').value);
+            const fav = norm(document.getElementById('f-favorecido').value);
+            const orgao = norm(document.getElementById('f-orgao').value);
+            const ano = document.getElementById('f-ano').value.trim();
+            const despesa = norm(document.getElementById('f-despesa').value);
+            const vExato = BRL_toNumber(document.getElementById('f-valor-exato').value);
+
+
+            rows.forEach(tr => {
+                const tds = tr.cells;
+                const anoTD = (tds[COL.ANO]?.textContent || '').trim();
+                const dataTD = parseBRDate((tds[COL.DATA]?.textContent || '').trim());
+                const tipoTD = norm((tds[COL.TIPO]?.textContent || ''));
+                const orgaoTD = norm((tds[COL.ORGAO]?.textContent || ''));
+                const elemTD = norm((tds[COL.ELEMENTO]?.textContent || ''));
+                const classTD = norm((tds[COL.CLASSIF]?.textContent || ''));
+                const favTD = norm((tds[COL.FAV]?.textContent || ''));
+                const empTD = norm((tds[COL.EMPENHO]?.textContent || ''));
+                const valorN = BRL_toNumber((tds[COL.EMPENHO]?.textContent || ''));
+
+
+                let show = true;
+                if (ano && anoTD !== ano) show = false;
+                if (dtIni && (!dataTD || dataTD < dtIni)) show = false;
+                if (dtFim && (!dataTD || dataTD > dtFim)) show = false;
+                if (empenho && !empTD.includes(empenho)) show = false;
+                if (vMin != null && (valorN == null || valorN < vMin)) show = false;
+                if (vMax != null && (valorN == null || valorN > vMax)) show = false;
+                if (vExato != null && (valorN == null || Math.abs(valorN - vExato) > 0.0001)) show = false;
+                if (fav && !favTD.includes(fav)) show = false;
+                if (orgao && !orgaoTD.includes(orgao)) show = false;
+                if (despesa && !(elemTD.includes(despesa) || classTD.includes(despesa))) show = false;
+
+
+                tr.style.display = show ? '' : 'none';
+            });
+        }
+
+
+        function limparFiltros() {
+            document.querySelectorAll('#filtros-despesas input, #filtros-despesas select').forEach(el => el.value = '');
+            aplicaFiltros();
+        }
+
+
+        document.getElementById('btn-aplicar')?.addEventListener('click', (e) => { e.preventDefault(); aplicaFiltros(); });
+        document.getElementById('btn-limpar')?.addEventListener('click', (e) => { e.preventDefault(); limparFiltros(); });
+
+
+        // Aplica ao digitar (opcional, remove se não quiser)
+        document.querySelectorAll('#filtros-despesas input').forEach(el => el.addEventListener('input', aplicaFiltros));
+    </script>
+
+</body>
+</html>
