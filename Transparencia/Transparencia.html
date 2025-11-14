@@ -61,12 +61,22 @@
 
     <section class="secao-servicos secao container-principal">
         <h2 class="secao-titulo">Portal Transparência</h2>
-        <input class="Pesquisa" type="search" placeholder="Pesquise um Serviço">
         <div class="SecaoHistorico breadcrumb" aria-label="Breadcrumb" style="margin-top: 20px;">
             <ol id="bc-list"></ol>
         </div>
+        <div class="servicos__topicos-nav">
+                <div style="display: flex; width: 100%;">
+                    <input id="busca-texto" class="Pesquisa" type="search" placeholder="Pesquise no site" aria-label="Pesquisar serviço">
+                    <!-- Ocultei o botão e o filtro para a pesquisa continuar funcionando mas no portal a filtragem não é necessária no momento -->
+                    <button hidden style="width: 100px; border: none; border-radius: 8px; margin-left: 10px; 
+                    background: var(--cor-primaria); color: white; cursor: pointer; font-weight: 600;" id="btn-buscar">Buscar</button>
+                    <select hidden title="Campo de pesquisa"  id="busca-campo" style="width: auto; border: none; border-radius: 8px; margin-left: 10px; 
+                    background: var(--cor-primaria); color: white; cursor: pointer; text-align: center; font-weight: 600;">
+                        <option value="Tudo">Todos Serviços</option>
+                    </select>
+                </div>
     </section>
-
+    
     <section class="secao-servicos secao container-principal">
         <div class="servicos__topicos">
             <h2 class="secao-titulo">Transparência Ativa</h2>
@@ -77,9 +87,9 @@
             </div>
             <div class="servico" data-topico="cidadão">
                 <a href="Tabela.html">
-                <img class="servico__icone" src="https://placehold.co/60x60/004a91/FFF?text=i&font=roboto"
-                    alt="Icone do serviço">
-                <p class="servico__nome">Dedspesas</p>
+                    <img class="servico__icone" src="https://placehold.co/60x60/004a91/FFF?text=i&font=roboto"
+                        alt="Icone do serviço">
+                    <p class="servico__nome">Dedspesas</p>
                 </a>
             </div>
             <div class="servico" data-topico="cidadão">
@@ -229,6 +239,7 @@
     </footer>
 
     <script src="../Scripts/script.js"></script>
+    <script src="../Scripts/Search.js"></script>
 
 </body>
 
