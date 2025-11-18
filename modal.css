@@ -2,6 +2,7 @@
     --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
     --cor-fundo-card: #ffffff;
 }
+
 .modal-wrapper {
     font-family: 'Montserrat', sans-serif;
     position: fixed;
@@ -38,7 +39,7 @@
     transform: translateY(-20px);
     opacity: 0;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    opacity 0.4s ease;
+        opacity 0.4s ease;
 }
 
 .modal-wrapper:target .modal-body {

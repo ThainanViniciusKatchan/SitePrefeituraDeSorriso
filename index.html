@@ -6,10 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prefeitura de Sorriso</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Acss.css">
 </head>
 
 <body>
+
     <nav class="navegacao">
+        <section class="topbar" role="region" aria-label="Controles de navegação">
+            <div class="acess-controls" role="toolbar" aria-label="Controles de acessibilidade">
+                <button id="toggleTheme" aria-pressed="false" title="Alternar modo escuro">Modo Escuro</button>
+
+
+                <details class="navegacao__dropdown" aria-haspopup="true">
+                    <summary aria-expanded="false" class="navegacao__dropdown-titulo">Acessibilidade</summary>
+                    <div class="navegacao__dropdown-menu" role="menu" aria-label="Opções de acessibilidade">
+                        <button class="navegacao__dropdown-item" data-action="contrast" role="menuitem">Modo
+                            Contraste</button>
+                        <button class="navegacao__dropdown-item" data-action="daltonic" role="menuitem">Modo
+                            Daltônico</button>
+                        <button class="navegacao__dropdown-item" data-action="speak" role="menuitem">Narração do
+                            Texto</button>
+                        <div style="display:flex;gap:6px;align-items:center">
+                            <button class="navegacao__dropdown-item" data-action="zoom-in"
+                                aria-label="Aumentar fonte">A+</button>
+                            <button class="navegacao__dropdown-item" data-action="zoom-out"
+                                aria-label="Diminuir fonte">A-</button>
+                        </div>
+                        <button class="navegacao__dropdown-item" data-action="reset" role="menuitem">Restaurar
+                            Padrões</button>
+                    </div>
+                </details>
+
+
+            </div>
+        </section>
         <a href="index.html">
             <img class="navegacao__logo"
                 src="https://site.sorriso.mt.gov.br/storage/app/uploads/public/68f/293/151/68f293151f5c6079842921.png"
@@ -68,12 +98,13 @@
     <section class="secao-noticias secao container-principal">
         <div class="noticia-principal">
             <a href="./Noticias/Noticia.html">
-            <img class="noticia-principal__imagem" src="./imagens/Gemini_Generated_Image_u0bba4u0bba4u0bb.png"
-                alt="Banner de Notícias">
-            <h2 class="noticia-principal__titulo">Prefeitura inicia obras de revitalização da Praça Central</h2>
-            <p class="noticia-principal__descricao">As obras na Praça Matriz começaram nesta segunda-feira e prometem
-                trazer um novo espaço de lazer moderno
-                e acessível para toda a população, com previsão de entrega para dezembro.</p>
+                <img class="noticia-principal__imagem" src="./imagens/Gemini_Generated_Image_u0bba4u0bba4u0bb.png"
+                    alt="Banner de Notícias">
+                <h2 class="noticia-principal__titulo">Prefeitura inicia obras de revitalização da Praça Central</h2>
+                <p class="noticia-principal__descricao">As obras na Praça Matriz começaram nesta segunda-feira e
+                    prometem
+                    trazer um novo espaço de lazer moderno
+                    e acessível para toda a população, com previsão de entrega para dezembro.</p>
             </a>
         </div>
 
@@ -386,6 +417,7 @@
     </footer>
 
     <script src="/Scripts/script.js"></script>
+    <script src="/Scripts/Acessibilidade.js"></script>
 </body>
 
 </html>
