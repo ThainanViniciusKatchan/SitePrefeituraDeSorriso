@@ -1,8 +1,11 @@
-
 (function () {
     const root = document.documentElement;
     const btnTheme = document.getElementById('toggleTheme');
     const defaultFontSize = 16; // base em px
+
+    // Flag para ativar o narrador
+    let modoNarradorAtivo = false;
+    const key = "rtn12p9G";
 
     // Carrega preferências
     const state = JSON.parse(localStorage.getItem('acessState') || '{}');
@@ -45,21 +48,44 @@
             root.style.setProperty('--font-size-base', next + 'px');
             state.fontSize = next;
         }
+
+        // Ativa/desativa modo narrador ao clicar no botão de narração
         if (action === 'speak') {
-            const text = document.getElementById('conteudo-exemplo')?.innerText.trim();
-            if (!text) return;
-            // Use SpeechSynthesis se disponível
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utter = new SpeechSynthesisUtterance(text);
-                utter.lang = 'pt-BR';
-                window.speechSynthesis.speak(utter);
+            modoNarradorAtivo = !modoNarradorAtivo;
+            if (modoNarradorAtivo) {
+                // Injeta o script se ainda não existir
+                if (!document.getElementById('responsive-voice-script')) {
+                    const script = document.createElement('script');
+                    script.id = 'responsive-voice-script';
+                    script.src = 'https://code.responsivevoice.org/responsivevoice.js?key=' + key;
+                    script.onload = () => {
+                        alert('Modo narrador ativado. Selecione um texto para ouvir.');
+                    };
+                    script.onerror = () => {
+                        alert('Erro ao carregar o narrador. Verifique sua conexão.');
+                        modoNarradorAtivo = false;
+                    };
+                    document.body.appendChild(script);
+                } else {
+                    alert('Modo narrador ativado. Selecione um texto para ouvir.');
+                }
             } else {
-                alert('Narração não suportada neste navegador.');
+                alert('Modo narrador desativado.');
+                modoNarradorAtivo = false;
             }
         }
 
         localStorage.setItem('acessState', JSON.stringify(state));
+    });
+
+    // Listener de seleção de texto (fora do click handler para evitar duplicação)
+    document.addEventListener('mouseup', function () {
+        if (!modoNarradorAtivo) return;
+        const selection = window.getSelection();
+        const text = selection ? selection.toString().trim() : '';
+        if (text.length > 0 && window.responsiveVoice) {
+            responsiveVoice.speak(text, "Brazilian Portuguese Female");
+        }
     });
 
     // Melhoria de acessibilidade: resumo <details> mudando aria-expanded automaticamente
