@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,10 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transparência Sorriso</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/Acss.css">
     <script src="../Scripts/Breadcrumb.js"></script>
 </head>
 
 <body>
+    <div class="acess-controls" role="toolbar" aria-label="Controles de acessibilidade">
+
+        <details class="navegacao__dropdown_Acess" aria-haspopup="true">
+            <summary aria-expanded="false" class="navegacao__dropdown_Acess-titulo">
+                <img src="/imagens/icons/universal-access-accessibility-icon.png" alt="A11Y">
+            </summary>
+            <div class="navegacao__dropdown_Acess-menu" role="menu" aria-label="Opções de acessibilidade">
+                <button class="navegacao__dropdown_Acess-item" id="toggleTheme" aria-pressed="false"
+                    title="Alternar modo escuro">Modo Escuro</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="contrast" role="menuitem">Modo
+                    Contraste</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="daltonic" role="menuitem">Modo
+                    Daltônico</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="speak" role="menuitem">Narração do
+                    Texto</button>
+                <div style="display:flex;gap:6px;align-items:center">
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-in"
+                        aria-label="Aumentar fonte">A+</button>
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-out"
+                        aria-label="Diminuir fonte">A-</button>
+                </div>
+                <button class="navegacao__dropdown_Acess-item" data-action="reset" role="menuitem">Restaurar
+                    Padrões</button>
+            </div>
+        </details>
+    </div>
 
     <nav class="navegacao">
         <a href="../index.html">
@@ -65,18 +93,21 @@
             <ol id="bc-list"></ol>
         </div>
         <div class="servicos__topicos-nav">
-                <div style="display: flex; width: 100%;">
-                    <input id="busca-texto" class="Pesquisa" type="search" placeholder="Pesquise no site" aria-label="Pesquisar serviço">
-                    <!-- Ocultei o botão e o filtro para a pesquisa continuar funcionando mas no portal a filtragem não é necessária no momento -->
-                    <button hidden style="width: 100px; border: none; border-radius: 8px; margin-left: 10px; 
-                    background: var(--cor-primaria); color: white; cursor: pointer; font-weight: 600;" id="btn-buscar">Buscar</button>
-                    <select hidden title="Campo de pesquisa"  id="busca-campo" style="width: auto; border: none; border-radius: 8px; margin-left: 10px; 
+            <div style="display: flex; width: 100%;">
+                <input id="busca-texto" class="Pesquisa" type="search" placeholder="Pesquise no site"
+                    aria-label="Pesquisar serviço">
+                <!-- Ocultei o botão e o filtro para a pesquisa continuar funcionando mas no portal a filtragem não é necessária no momento -->
+                <button hidden style="width: 100px; border: none; border-radius: 8px; margin-left: 10px; 
+                    background: var(--cor-primaria); color: white; cursor: pointer; font-weight: 600;"
+                    id="btn-buscar">Buscar</button>
+                <select hidden title="Campo de pesquisa" id="busca-campo"
+                    style="width: auto; border: none; border-radius: 8px; margin-left: 10px; 
                     background: var(--cor-primaria); color: white; cursor: pointer; text-align: center; font-weight: 600;">
-                        <option value="Tudo">Todos Serviços</option>
-                    </select>
-                </div>
+                    <option value="Tudo">Todos Serviços</option>
+                </select>
+            </div>
     </section>
-    
+
     <section class="secao-servicos secao container-principal">
         <div class="servicos__topicos">
             <h2 class="secao-titulo">Transparência Ativa</h2>
@@ -240,7 +271,7 @@
 
     <script src="../Scripts/script.js"></script>
     <script src="../Scripts/Search.js"></script>
-
+    <script src="/Scripts/Acessibilidade.js"></script>
 </body>
 
 </html>
