@@ -192,28 +192,36 @@
 
         // Controla a pesqusia no portal transparência, ocultando os blocos que não contem mais itens e os que não contem itens correpondentes a pesquisa
         const Outros = document.getElementById('Outros');
-        const passiva = document.getElementById('Passiva');  
+        const passiva = document.getElementById('Passiva');
+        const Ativa = document.getElementById('Ativa');
         if (Outros || passiva) { // Verifica se tem itens nos blocos
             const servicosOutros = Array.from(Outros.querySelectorAll('.servico'));
             const servicosPassiva = Array.from(passiva.querySelectorAll('.servico'));
+            const servicosAtiva = Array.from(Ativa.querySelectorAll('.servico'));
 
             const visiveisOutros = servicosOutros.filter( // Oculta os itens Outros
                 s => s.style.display !== 'none' && !s.classList.contains('oculto')
             ).length;
-            
+
             const visiveispassiva = servicosPassiva.filter( // Oculta os itens Passiva
                 s => s.style.display !== 'none' && !s.classList.contains('oculto')
             ).length;
-            
+
+            const visiveisAtiva = servicosAtiva.filter( // Oculta os itens Ativa
+                s => s.style.display !== 'none' && !s.classList.contains('oculto')
+            ).length;
+
             // Muda o display para none ocultando os blocos sem nada
             Outros.style.display = visiveisOutros > 0 ? '' : 'none';
             passiva.style.display = visiveispassiva > 0 ? '' : 'none';
+            Ativa.style.display = visiveisAtiva > 0 ? '' : 'none';
         }
 
         // se não houver resultados some com os blocos vazios
-        if (Outros || passiva) {
+        if (Outros || passiva || Ativa) {
             Outros.style.display = qtdVisiveis > 0 ? '' : 'none';
             passiva.style.display = qtdVisiveis > 0 ? '' : 'none';
+            Ativa.style.display = qtdVisiveis > 0 ? '' : 'none';
         }
 
 
