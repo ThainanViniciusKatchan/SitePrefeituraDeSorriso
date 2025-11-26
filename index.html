@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Acss.css">
     <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="calendario.css">
 </head>
 
 <body>
@@ -319,72 +320,145 @@
     </section>
 
     <section class="secao-documentos secao container-principal">
-        <div class="documentos__topicos-bloco">
-            <h2 class="secao-titulo">Documentos para Download</h2>
-            <div class="documentos__topicos">
-                <p class="documentos__topico documentos__topico--ativo" data-doc-topico="editais">Editais</p>
-                <p class="documentos__topico" data-doc-topico="servidores">Documentos para Servidores</p>
-                <p class="documentos__topico" data-doc-topico="empresas">Documentos para Empresas</p>
+        <div style="width: 100%; display: flex; flex-direction: row; gap: 10px;">
+            <!-- Bloco Documentos em Lista -->
+            <div class="documentos__topicos-bloco" style="width: 50%; flex-direction: column; display: flex;">
+                <h2 class="secao-titulo">Documentos para Download</h2>
+
+                <!-- Categoria: Editais -->
+                <h3
+                    style="color: var(--cor-primaria); font-size: 1.2rem; margin: 1.5rem 0 0.75rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid var(--cor-primaria);">
+                    Editais</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Edital de Concurso Público 001/2025</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Edital de Licitação 045/2025 - Obras</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Edital de Pregão 078/2025 - Material
+                            Escolar
+                        </p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                </ul>
+
+                <!-- Categoria: Documentos para Servidores -->
+                <h3
+                    style="color: var(--cor-primaria); font-size: 1.2rem; margin: 1.5rem 0 0.75rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid var(--cor-primaria);">
+                    Documentos para Servidores</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Manual de Ética do Servidor</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Formulário de Férias (Servidor)</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Regulamento de Progressão de Carreira</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                </ul>
+
+                <!-- Categoria: Documentos para Empresas -->
+                <h3
+                    style="color: var(--cor-primaria); font-size: 1.2rem; margin: 1.5rem 0 0.75rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid var(--cor-primaria);">
+                    Documentos para Empresas</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Guia de Emissão de ISS (Empresas)</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Modelo de Requerimento (Empresas)</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background-color: var(--cor-fundo); margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e3f2fd'"
+                        onmouseout="this.style.backgroundColor='var(--cor-fundo)'">
+                        <p class="documento__nome" style="margin: 0; flex: 1;">Manual de Licitações para Empresas</p>
+                        <span class="documento__download"><img style="width: 32px;"
+                                src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
+                                alt="botão download"></span>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Documentos para Editais -->
-            <div class="documento" data-doc-topico="editais">
-                <p class="documento__nome">Edital de Concurso Público 001/2025</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento" data-doc-topico="editais">
-                <p class="documento__nome">Edital de Licitação 045/2025 - Obras</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento" data-doc-topico="editais">
-                <p class="documento__nome">Edital de Pregão 078/2025 - Material Escolar</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-
-            <!-- Documentos para Servidores -->
-            <div class="documento oculto" data-doc-topico="servidores">
-                <p class="documento__nome">Manual de Ética do Servidor</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento oculto" data-doc-topico="servidores">
-                <p class="documento__nome">Formulário de Férias (Servidor)</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento oculto" data-doc-topico="servidores">
-                <p class="documento__nome">Regulamento de Progressão de Carreira</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-
-            <!-- Documentos para Empresas -->
-            <div class="documento oculto" data-doc-topico="empresas">
-                <p class="documento__nome">Guia de Emissão de ISS (Empresas)</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento oculto" data-doc-topico="empresas">
-                <p class="documento__nome">Modelo de Requerimento (Empresas)</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
-            </div>
-            <div class="documento oculto" data-doc-topico="empresas">
-                <p class="documento__nome">Manual de Licitações para Empresas</p>
-                <span class="documento__download"><img style="width: 35px;"
-                        src="https://img.icons8.com/?size=100&id=83159&format=png&color=000000"
-                        alt="botão download"></span>
+            <!-- Bloco do Calendário -->
+            <div class="calendario-bloco" style="width: 50%;">
+                <h2 class="secao-titulo">Calendário de Eventos</h2>
+                <div class="calendario-container">
+                    <div class="calendario-header">
+                        <button class="calendario-nav" id="calendario-prev">◀</button>
+                        <h3 class="calendario-mes-ano" id="calendario-mes-ano"></h3>
+                        <button class="calendario-nav" id="calendario-next">▶</button>
+                    </div>
+                    <div class="calendario-dias-semana">
+                        <div class="calendario-dia-nome">Dom</div>
+                        <div class="calendario-dia-nome">Seg</div>
+                        <div class="calendario-dia-nome">Ter</div>
+                        <div class="calendario-dia-nome">Qua</div>
+                        <div class="calendario-dia-nome">Qui</div>
+                        <div class="calendario-dia-nome">Sex</div>
+                        <div class="calendario-dia-nome">Sáb</div>
+                    </div>
+                    <div class="calendario-dias" id="calendario-dias"></div>
+                </div>
+                <div class="calendario-legenda">
+                    <div class="legenda-item">
+                        <span class="legenda-cor evento"></span>
+                        <span>Eventos</span>
+                    </div>
+                    <div class="legenda-item">
+                        <span class="legenda-cor feriado"></span>
+                        <span>Feriados</span>
+                    </div>
+                    <div class="legenda-item">
+                        <span class="legenda-cor facultativo"></span>
+                        <span>Ponto Facultativo</span>
+                    </div>
+                </div>
+                <div class="calendario-eventos" id="calendario-eventos">
+                    <h4>Eventos Próximos</h4>
+                    <ul id="lista-eventos"></ul>
+                </div>
             </div>
         </div>
     </section>
@@ -464,6 +538,7 @@
     <script src="/Scripts/script.js"></script>
     <script src="/Scripts/Acessibilidade.js"></script>
     <script src="/Scripts/clima.js"></script>
+    <script src="/Scripts/calendario.js"></script>
 
     <!-- Integração com Vlibras (Tradução do conteúdo da página em LIBRAS) -->
     <div vw class="enabled">

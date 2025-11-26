@@ -59,7 +59,8 @@
                     script.id = 'responsive-voice-script';
                     script.src = 'https://code.responsivevoice.org/responsivevoice.js?key=' + key;
                     script.onload = () => {
-                        alert('Modo narrador ativado. Selecione um texto para ouvir.');
+                        alert('Modo narrador ativado. Selecione um texto para ouvir.\n'
+                            + 'Para acessar a página, clique duas vezes sobre ele.');
                     };
                     script.onerror = () => {
                         alert('Erro ao carregar o narrador. Verifique sua conexão.');
@@ -74,19 +75,75 @@
                 modoNarradorAtivo = false;
             }
         }
-
         localStorage.setItem('acessState', JSON.stringify(state));
     });
 
-    // Listener de seleção de texto (fora do click handler para evitar duplicação)
-    document.addEventListener('mouseup', function () {
+    // Variáveis para controle do clique duplo (TalkBack logic)
+    let lastClickedElement = null;
+    let lastClickTime = 0;
+
+    // Listener global de click para interceptar e narrar
+    document.addEventListener('click', (e) => {
         if (!modoNarradorAtivo) return;
-        const selection = window.getSelection();
-        const text = selection ? selection.toString().trim() : '';
-        if (text.length > 0 && window.responsiveVoice) {
-            responsiveVoice.speak(text, "Brazilian Portuguese Female");
+
+        // Se for o botão de ativar/desativar o narrador, deixamos passar normal
+        if (e.target.closest('[data-action="speak"]')) return;
+
+        const target = e.target;
+        const now = Date.now();
+        const isDoubleClick = (target === lastClickedElement && (now - lastClickTime < 500));
+
+        if (isDoubleClick) {
+            // É um clique duplo: permite a ação padrão
+            lastClickedElement = null;
+            lastClickTime = 0;
+            return;
         }
-    });
+
+        // É um clique simples: narra e bloqueia a ação padrão
+        e.preventDefault();
+        e.stopPropagation();
+
+        lastClickedElement = target;
+        lastClickTime = now;
+
+        // Tenta obter o texto mais relevante
+        let textToSpeak = '';
+
+        // Prioridade: aria-label > alt > texto visível > title
+        if (target.getAttribute('aria-label')) {
+            textToSpeak = target.getAttribute('aria-label');
+        } else if (target.getAttribute('alt')) {
+            textToSpeak = target.getAttribute('alt');
+        } else if (target.innerText && target.innerText.trim().length > 0) {
+            textToSpeak = target.innerText;
+        } else if (target.title) {
+            textToSpeak = target.title;
+        }
+
+        // Se clicou em uma imagem sem alt ou container vazio, tenta pegar do pai
+        if (!textToSpeak) {
+            const parent = target.parentElement;
+            if (parent) {
+                if (parent.getAttribute('aria-label')) textToSpeak = parent.getAttribute('aria-label');
+                else if (parent.innerText) textToSpeak = parent.innerText;
+            }
+        }
+
+        textToSpeak = textToSpeak ? textToSpeak.trim() : '';
+
+        // Feedback visual (borda temporária)
+        const originalOutline = target.style.outline;
+        target.style.outline = '3px solid #FFFF00'; // Amarelo alto contraste
+        setTimeout(() => {
+            target.style.outline = originalOutline;
+        }, 1000);
+
+        if (textToSpeak && window.responsiveVoice) {
+            responsiveVoice.cancel(); // Para a fala anterior
+            responsiveVoice.speak(textToSpeak, "Brazilian Portuguese Female");
+        }
+    }, true); // UseCapture para garantir que pegamos o evento antes de outros handlers
 
     // Melhoria de acessibilidade: resumo <details> mudando aria-expanded automaticamente
     document.querySelectorAll('details').forEach(d => {
