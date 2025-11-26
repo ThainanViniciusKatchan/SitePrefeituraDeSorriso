@@ -123,9 +123,23 @@
         <img class="banner-principal__imagem" src="./imagens/SeletivoBanner.png" alt="Banner de Anúncios">
     </section>
 
-    <section class="secao-servicos secao container-principal">
-        <input class="Pesquisa" type="search" placeholder="Pesquise no site">
-    </section>
+    <div style="display: flex; width: 80%; margin-top: 30px; margin-left: auto; margin-right: auto;">
+        <input id="busca-texto" class="Pesquisa" type="search" placeholder="Pesquise no site"
+            aria-label="Pesquisar serviço" style="width: 100%;">
+        <button hidden style="width: 100px; border: none; border-radius: 8px; margin-left: 10px; 
+                    background: var(--cor-primaria); color: white; cursor: pointer; font-weight: 600;"
+            id="btn-buscar">Buscar</button>
+        <select title="Campo de pesquisa" id="busca-campo"
+            style="width: auto; border: none; border-radius: 8px; margin-left: 10px; 
+                    background: var(--cor-primaria); color: white; cursor: pointer; text-align: center; font-weight: 600;">
+            <option value="Tópico">Notícias</option>
+            <option value="Tudo">Serviços</option>
+            <option value="Nome">Eventos</option>
+            <option value="Nome">Anúncios</option>
+            <option value="Nome">Documentos</option>
+            <option value="Nome">Todos</option>
+        </select>
+    </div>
 
     <section class="secao-noticias secao container-principal">
         <div class="noticia-principal">
