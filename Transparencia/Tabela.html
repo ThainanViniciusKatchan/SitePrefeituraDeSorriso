@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,11 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despesa</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/Acss.css">
     <link rel="stylesheet" href="../modal.css">
     <link rel="stylesheet" href="tabela.css">
     <script src="../Scripts/Breadcrumb.js"></script>
 </head>
+
 <body>
+    <div class="acess-controls" role="toolbar" aria-label="Controles de acessibilidade">
+
+        <details class="navegacao__dropdown_Acess" aria-haspopup="true">
+            <summary aria-expanded="false" class="navegacao__dropdown_Acess-titulo">
+                <img src="/imagens/icons/universal-access-accessibility-icon.png" alt="A11Y">
+            </summary>
+            <div class="navegacao__dropdown_Acess-menu" role="menu" aria-label="Opções de acessibilidade">
+                <button class="navegacao__dropdown_Acess-item" id="toggleTheme" aria-pressed="false"
+                    title="Alternar modo escuro">Modo Escuro</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="contrast" role="menuitem">Modo
+                    Contraste</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="daltonic" role="menuitem">Modo
+                    Daltônico</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="speak" role="menuitem">Narração do
+                    Texto</button>
+                <div style="display:flex;gap:6px;align-items:center">
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-in"
+                        aria-label="Aumentar fonte">A+</button>
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-out"
+                        aria-label="Diminuir fonte">A-</button>
+                </div>
+                <button class="navegacao__dropdown_Acess-item" data-action="reset" role="menuitem">Restaurar
+                    Padrões</button>
+            </div>
+        </details>
+    </div>
 
     <nav class="navegacao">
         <a href="../index.html">
@@ -246,16 +275,26 @@
             </div>
             <div>
                 <ul>
-                    <li class="tabela">Número: <p>0001</p></li>
-                    <li class="tabela">Ano: <p>2025</p></li>
-                    <li class="tabela">Data: <p>11/11/2025</p></li>
-                    <li class="tabela">Tipo de Empenho: <p>Global</p></li>
-                    <li class="tabela">Órgão: <p>Secretaria de Administração</p></li>
-                    <li class="tabela">Elemento da Despesa: <p>Materal de Consumo</p></li>
-                    <li class="tabela">Classificação da Despesa: <p>Fornecedores</p></li>
-                    <li class="tabela">CNPJ/CPF: <p>00.000/0001-00</p></li>
-                    <li class="tabela">Favorecido: <p>Empresa 01</p></li>
-                    <li class="tabela">Empenho: <p>5.000,00</p></li>
+                    <li class="tabela">Número: <p>0001</p>
+                    </li>
+                    <li class="tabela">Ano: <p>2025</p>
+                    </li>
+                    <li class="tabela">Data: <p>11/11/2025</p>
+                    </li>
+                    <li class="tabela">Tipo de Empenho: <p>Global</p>
+                    </li>
+                    <li class="tabela">Órgão: <p>Secretaria de Administração</p>
+                    </li>
+                    <li class="tabela">Elemento da Despesa: <p>Materal de Consumo</p>
+                    </li>
+                    <li class="tabela">Classificação da Despesa: <p>Fornecedores</p>
+                    </li>
+                    <li class="tabela">CNPJ/CPF: <p>00.000/0001-00</p>
+                    </li>
+                    <li class="tabela">Favorecido: <p>Empresa 01</p>
+                    </li>
+                    <li class="tabela">Empenho: <p>5.000,00</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -349,5 +388,7 @@
         document.querySelectorAll('#filtros-despesas input').forEach(el => el.addEventListener('input', aplicaFiltros));
     </script>
 
+    <script src="/Scripts/Acessibilidade.js"></script>
 </body>
+
 </html>

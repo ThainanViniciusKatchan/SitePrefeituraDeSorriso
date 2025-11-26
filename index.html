@@ -6,10 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prefeitura de Sorriso</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Acss.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
+    <div id="site-banner-modal" class="sbm-hidden" aria-hidden="true" aria-modal="true" role="dialog">
+        <div class="sbm-backdrop" data-close></div>
+        <div class="sbm-panel" role="document" aria-labelledby="sbm-title">
+
+            <button class="sbm-close" aria-label="Fechar modal" title="Fechar">&times;</button>
+            <h2 id="sbm-title" class="sbm-title">Novidades</h2>
+
+            <div class="sbm-carousel" tabindex="5">
+                <button class="sbm-nav sbm-prev" aria-label="Anterior">
+                    &lt;
+                </button>
+
+                <ul class="sbm-slides" role="listbox" aria-live="polite">
+                    <li><a href=""><img src="./imagens/Escola.png" alt=""></a></li>
+                    <li><a href=""><img src="./imagens/Festival.png" alt=""></a></li>
+                </ul>
+
+                <button class="sbm-nav sbm-next" aria-label="Próximo">></button>
+
+                <div class="sbm-dots" role="tablist" aria-label="Navegação de banners"></div>
+            </div>
+            <div class="sbm-controls">
+                <label class="sbm-checkbox">
+                    <input type="checkbox" id="sbm-hide-forever">
+                    <span class="sbm-switch-ui" aria-hidden="true"></span>
+                    <span class="sbm-checkbox-text">Desativar até a próxima novidade</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="acess-controls" role="toolbar" aria-label="Controles de acessibilidade">
+
+        <details class="navegacao__dropdown_Acess" aria-haspopup="true">
+            <summary aria-expanded="false" class="navegacao__dropdown_Acess-titulo">
+                <img src="./imagens/icons/universal-access-accessibility-icon.png" alt="A11Y">
+            </summary>
+            <div class="navegacao__dropdown_Acess-menu" role="menu" aria-label="Opções de acessibilidade">
+                <button class="navegacao__dropdown_Acess-item" id="toggleTheme" aria-pressed="false"
+                    title="Alternar modo escuro">Modo Escuro</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="contrast" role="menuitem">Modo
+                    Contraste</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="daltonic" role="menuitem">Modo
+                    Daltônico</button>
+                <button class="navegacao__dropdown_Acess-item" data-action="speak" role="menuitem">Narração do
+                    Texto</button>
+                <div style="display:flex;gap:6px;align-items:center">
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-in"
+                        aria-label="Aumentar fonte">A+</button>
+                    <button class="navegacao__dropdown_Acess-item" data-action="zoom-out"
+                        aria-label="Diminuir fonte">A-</button>
+                </div>
+                <button class="navegacao__dropdown_Acess-item" data-action="reset" role="menuitem">Restaurar
+                    Padrões</button>
+            </div>
+        </details>
+    </div>
+
     <nav class="navegacao">
+        <section class="topbar" role="region" aria-label="Controles de navegação">
+        </section>
         <a href="index.html">
             <img class="navegacao__logo"
                 src="https://site.sorriso.mt.gov.br/storage/app/uploads/public/68f/293/151/68f293151f5c6079842921.png"
@@ -57,7 +119,7 @@
         </ul>
     </nav>
 
-    <section class="banner-principal container-principal">
+    <section class="banner-principal">
         <img class="banner-principal__imagem" src="./imagens/SeletivoBanner.png" alt="Banner de Anúncios">
     </section>
 
@@ -68,12 +130,13 @@
     <section class="secao-noticias secao container-principal">
         <div class="noticia-principal">
             <a href="./Noticias/Noticia.html">
-            <img class="noticia-principal__imagem" src="./imagens/Gemini_Generated_Image_u0bba4u0bba4u0bb.png"
-                alt="Banner de Notícias">
-            <h2 class="noticia-principal__titulo">Prefeitura inicia obras de revitalização da Praça Central</h2>
-            <p class="noticia-principal__descricao">As obras na Praça Matriz começaram nesta segunda-feira e prometem
-                trazer um novo espaço de lazer moderno
-                e acessível para toda a população, com previsão de entrega para dezembro.</p>
+                <img class="noticia-principal__imagem" src="./imagens/Gemini_Generated_Image_u0bba4u0bba4u0bb.png"
+                    alt="Banner de Notícias">
+                <h2 class="noticia-principal__titulo">Prefeitura inicia obras de revitalização da Praça Central</h2>
+                <p class="noticia-principal__descricao">As obras na Praça Matriz começaram nesta segunda-feira e
+                    prometem
+                    trazer um novo espaço de lazer moderno
+                    e acessível para toda a população, com previsão de entrega para dezembro.</p>
             </a>
         </div>
 
@@ -106,6 +169,36 @@
                         Cidade.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="secao">
+        <div class="widget-card">
+            <div class="previsao-clima">
+                <div class="clima-atual">
+                    <h3 class="clima-atual__titulo">Agora</h3>
+                    <div class="clima-atual__temperatura">--°C</div>
+                </div>
+                <div class="previsao-dia">
+                    <h3 class="previsao-dia__titulo">Hoje</h3>
+                    <div class="previsao-dia__icone">☀️</div>
+                    <div class="previsao-dia__temperatura">30°C / 20°C</div>
+                </div>
+                <div class="previsao-dia">
+                    <h3 class="previsao-dia__titulo">Amanhã</h3>
+                    <div class="previsao-dia__icone">🌦️</div>
+                    <div class="previsao-dia__temperatura">27°C / 19°C</div>
+                </div>
+                <div class="previsao-dia">
+                    <h3 class="previsao-dia__titulo">Quinta</h3>
+                    <div class="previsao-dia__icone">⛈️</div>
+                    <div class="previsao-dia__temperatura">25°C / 18°C</div>
+                </div>
+            </div>
+            <p class="previsao-atualizacao">Atualizado: 10:45 AM</p>
+            <p style="opacity: 0.5;" class="previsao-atualizacao">
+                Dados de previsão do tempo fornecidos por <strong>OpenWeatherMap</strong>.
+            </p>
         </div>
     </section>
 
@@ -318,38 +411,6 @@
         </div>
     </section>
 
-    <section class="secao container-principal">
-        <div class="widget-card">
-            <h2 class="widget-card__titulo">Clima em Sorriso, MT</h2>
-
-            <div class="clima-atual">
-                <span class="clima-atual__icone">🌥️</span>
-                <span class="clima-atual__temperatura">28°C</span>
-                <span class="clima-atual__descricao">Parcialmente Nublado</span>
-                <span class="clima-atual__detalhes">Vento: 12 km/h | Umidade: 65%</span>
-            </div>
-
-            <div class="previsao-clima">
-                <div class="previsao-dia">
-                    <h3 class="previsao-dia__titulo">Terça</h3>
-                    <div class="previsao-dia__icone">☀️</div>
-                    <div class="previsao-dia__temperatura">30°C / 20°C</div>
-                </div>
-                <div class="previsao-dia">
-                    <h3 class="previsao-dia__titulo">Quarta</h3>
-                    <div class="previsao-dia__icone">🌦️</div>
-                    <div class="previsao-dia__temperatura">27°C / 19°C</div>
-                </div>
-                <div class="previsao-dia">
-                    <h3 class="previsao-dia__titulo">Quinta</h3>
-                    <div class="previsao-dia__icone">⛈️</div>
-                    <div class="previsao-dia__temperatura">25°C / 18°C</div>
-                </div>
-            </div>
-            <p class="previsao-atualizacao">Atualizado: 10:45 AM</p>
-        </div>
-    </section>
-
     <footer class="rodape">
         <ul class="rodape__menu">
             <li class="rodape__item">Página Inicial</li>
@@ -385,7 +446,22 @@
         </div>
     </footer>
 
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <script src="/Scripts/script.js"></script>
+    <script src="/Scripts/Acessibilidade.js"></script>
+    <script src="/Scripts/clima.js"></script>
+
+    <!-- Integração com Vlibras (Tradução do conteúdo da página em LIBRAS) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 
 </html>

@@ -67,3 +67,17 @@
     cursor: pointer;
     font-size: 14px;
 }
+
+/* Banner Principal Imagem*/
+.banner-principal {
+    padding: 0;
+    margin-top: 0;
+}
+
+.banner-principal__imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--borda-raio);
+    background-color: #ccc;
+}
