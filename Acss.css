@@ -15,6 +15,11 @@ html[data-theme="dark"] {
     --sombra-card: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
+html[data-theme="dark"] .navegacao__logo {
+    filter: saturate(20);
+    filter: brightness(3);
+}
+
 html[data-theme="dark"] p {
     color: var(--cor-texto);
 }
@@ -25,6 +30,14 @@ html[data-theme="dark"] h2 {
 
 html[data-theme="dark"] a {
     color: var(--cor-texto);
+}
+
+html[data-theme="dark"] .topbar__item:hover {
+    color: var(--cor-primaria-escura);
+}
+
+html[data-theme="dark"] .navegacao__item {
+    color: white;
 }
 
 html[data-theme="dark"] summary {
@@ -75,6 +88,11 @@ html[data-theme="daltonic"] {
 html[data-theme="daltonic"] .servicos__topico {
     color: black;
     background-color: gray;
+}
+
+html[data-theme="daltonic"] .topbar__item {
+    color: white;
+    background-color: black;
 }
 
 html[data-theme="daltonic"] .rodape {

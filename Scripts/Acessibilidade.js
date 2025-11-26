@@ -1,7 +1,7 @@
 (function () {
     const root = document.documentElement;
     const btnTheme = document.getElementById('toggleTheme');
-    const defaultFontSize = 16; // base em px
+    const defaultFontSize = 16; // em px
 
     // Flag para ativar o narrador
     let modoNarradorAtivo = false;
@@ -49,7 +49,7 @@
             state.fontSize = next;
         }
 
-        // Ativa/desativa modo narrador ao clicar no botão de narração
+        // Ativa/desativa modo narrador
         if (action === 'speak') {
             modoNarradorAtivo = !modoNarradorAtivo;
             if (modoNarradorAtivo) {
@@ -78,7 +78,7 @@
         localStorage.setItem('acessState', JSON.stringify(state));
     });
 
-    // Variáveis para controle do clique duplo (TalkBack logic)
+    // Variáveis para controle do clique duplo
     let lastClickedElement = null;
     let lastClickTime = 0;
 
@@ -86,7 +86,7 @@
     document.addEventListener('click', (e) => {
         if (!modoNarradorAtivo) return;
 
-        // Se for o botão de ativar/desativar o narrador, deixamos passar normal
+        // Se for o botão de ativar/desativar o narrador
         if (e.target.closest('[data-action="speak"]')) return;
 
         const target = e.target;
@@ -100,7 +100,7 @@
             return;
         }
 
-        // É um clique simples: narra e bloqueia a ação padrão
+        // É um clique simplesnarra e bloqueia a ação padrão
         e.preventDefault();
         e.stopPropagation();
 
@@ -132,12 +132,12 @@
 
         textToSpeak = textToSpeak ? textToSpeak.trim() : '';
 
-        // Feedback visual (borda temporária)
+        // Feedback visual borda para marcar o que foi clicado
         const originalOutline = target.style.outline;
         target.style.outline = '3px solid #FFFF00'; // Amarelo alto contraste
         setTimeout(() => {
             target.style.outline = originalOutline;
-        }, 1000);
+        }, 2000);
 
         if (textToSpeak && window.responsiveVoice) {
             responsiveVoice.cancel(); // Para a fala anterior

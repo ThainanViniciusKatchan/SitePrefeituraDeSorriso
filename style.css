@@ -94,6 +94,37 @@ ul {
     appearance: none;
 }
 
+
+/*  */
+
+.social_topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topbar {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--cor-primaria-escura);
+}
+
+.topbar__item {
+    color: var(--cor-texto-claro);
+    padding: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topbar__item:hover {
+    background-color: white;
+    color: var(--cor-texto);
+}
+
 /* Menu principal (apenas estilização base) */
 .navegacao__menu {
     display: flex;
