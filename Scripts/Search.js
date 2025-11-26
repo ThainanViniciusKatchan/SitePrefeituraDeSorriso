@@ -33,15 +33,16 @@
 
         // Mostra os itens do tópico ativo e oculta os demais
         const topicos = Array.from(document.querySelectorAll('.servicos__topico'));
-        
+
         const topicoAtivoEl = document.querySelector('.servicos__topico--ativo');
         const topicoAtivo = topicoAtivoEl ? (topicoAtivoEl.dataset.topico || '') : '';
 
         // atualiza lista dinâmicamente
         const servicosList = Array.from(document.querySelectorAll('.servico'));
-        
+
         // Pesquisa do filtro Tudo
         if (campoSel === 'Tudo') {
+
             // oculta os tópicos quando a pesquisa for filtrada por tudo
             topicos.forEach(t => t.style.display = 'none');
 
@@ -188,9 +189,37 @@
         } else {
             pesquisarServicos(qRaw, campoSel);
         }
+
+        // Controla a pesqusia no portal transparência, ocultando os blocos que não contem mais itens e os que não contem itens correpondentes a pesquisa
+        const Outros = document.getElementById('Outros');
+        const passiva = document.getElementById('Passiva');  
+        if (Outros || passiva) { // Verifica se tem itens nos blocos
+            const servicosOutros = Array.from(Outros.querySelectorAll('.servico'));
+            const servicosPassiva = Array.from(passiva.querySelectorAll('.servico'));
+
+            const visiveisOutros = servicosOutros.filter( // Oculta os itens Outros
+                s => s.style.display !== 'none' && !s.classList.contains('oculto')
+            ).length;
+            
+            const visiveispassiva = servicosPassiva.filter( // Oculta os itens Passiva
+                s => s.style.display !== 'none' && !s.classList.contains('oculto')
+            ).length;
+            
+            // Muda o display para none ocultando os blocos sem nada
+            Outros.style.display = visiveisOutros > 0 ? '' : 'none';
+            passiva.style.display = visiveispassiva > 0 ? '' : 'none';
+        }
+
+        // se não houver resultados some com os blocos vazios
+        if (Outros || passiva) {
+            Outros.style.display = qtdVisiveis > 0 ? '' : 'none';
+            passiva.style.display = qtdVisiveis > 0 ? '' : 'none';
+        }
+
+
     }
 
-    // Executa os eventos
+    // Executa os eventos de pesquisa
     btnBuscar.addEventListener('click', (e) => { e.preventDefault(); pesquisar(); });
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); pesquisar(); } });
     input.addEventListener('input', () => pesquisar());
