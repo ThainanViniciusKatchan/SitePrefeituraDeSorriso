@@ -183,48 +183,48 @@
     function pesquisar() {
         const qRaw = input.value.trim();
         const campoSel = campo.value;
+        let anyVisible = false;
 
         if (hasTable) {
-            pesquisarTabela(qRaw, campoSel);
+            anyVisible = pesquisarTabela(qRaw, campoSel);
         } else {
-            pesquisarServicos(qRaw, campoSel);
+            anyVisible = pesquisarServicos(qRaw, campoSel);
         }
 
         // Controla a pesqusia no portal transparência, ocultando os blocos que não contem mais itens e os que não contem itens correpondentes a pesquisa
         const Outros = document.getElementById('Outros');
         const passiva = document.getElementById('Passiva');
         const Ativa = document.getElementById('Ativa');
-        if (Outros || passiva) { // Verifica se tem itens nos blocos
-            const servicosOutros = Array.from(Outros.querySelectorAll('.servico'));
-            const servicosPassiva = Array.from(passiva.querySelectorAll('.servico'));
-            const servicosAtiva = Array.from(Ativa.querySelectorAll('.servico'));
 
-            const visiveisOutros = servicosOutros.filter( // Oculta os itens Outros
-                s => s.style.display !== 'none' && !s.classList.contains('oculto')
-            ).length;
+        // Função auxiliar para atualizar a visibilidade das seções
+        const updateSection = (sec) => {
+            if (!sec) return;
+            const visibleCount = Array.from(sec.querySelectorAll('.servico'))
+                .filter(s => s.style.display !== 'none' && !s.classList.contains('oculto')).length;
+            sec.style.display = visibleCount > 0 ? '' : 'none';
+        };
 
-            const visiveispassiva = servicosPassiva.filter( // Oculta os itens Passiva
-                s => s.style.display !== 'none' && !s.classList.contains('oculto')
-            ).length;
-
-            const visiveisAtiva = servicosAtiva.filter( // Oculta os itens Ativa
-                s => s.style.display !== 'none' && !s.classList.contains('oculto')
-            ).length;
-
-            // Muda o display para none ocultando os blocos sem nada
-            Outros.style.display = visiveisOutros > 0 ? '' : 'none';
-            passiva.style.display = visiveispassiva > 0 ? '' : 'none';
-            Ativa.style.display = visiveisAtiva > 0 ? '' : 'none';
-        }
-
-        // se não houver resultados some com os blocos vazios
         if (Outros || passiva || Ativa) {
-            Outros.style.display = qtdVisiveis > 0 ? '' : 'none';
-            passiva.style.display = qtdVisiveis > 0 ? '' : 'none';
-            Ativa.style.display = qtdVisiveis > 0 ? '' : 'none';
+            updateSection(Outros);
+            updateSection(passiva);
+            updateSection(Ativa);
         }
 
+        // Lógica para mensagem de nenhum resultado
+        const container = document.getElementById('Search');
+        const msgId = 'no-results-msg';
+        let msg = document.getElementById(msgId);
 
+        if (!anyVisible) {
+            if (!msg && container) {
+                msg = document.createElement('h2');
+                msg.id = msgId;
+                msg.textContent = 'Nenhum resultado encontrado';
+                container.appendChild(msg);
+            }
+        } else {
+            if (msg) msg.remove();
+        }
     }
 
     // Executa os eventos de pesquisa
