@@ -91,25 +91,26 @@ ul {
 
 .Pesquisa::-webkit-search-cancel-button {
     -webkit-appearance: none;
-    appearance: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-
-/*  */
-
+/* TopBar */
 .social_topbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 16px;
 }
 
 .topbar {
+    z-index: 20;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 16px;
+    font-size: 16px;
     background-color: var(--cor-primaria-escura);
 }
 
@@ -125,7 +126,7 @@ ul {
     color: var(--cor-texto);
 }
 
-/* Menu principal (apenas estilização base) */
+/* Menu principal */
 .navegacao__menu {
     display: flex;
     gap: 14px;

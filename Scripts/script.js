@@ -54,6 +54,13 @@ document.querySelectorAll('.documentos__topico').forEach(topico => {
   });
 });
 
+// Fecha o dropdown quando o mouse sai da área
+document.querySelectorAll('details.navegacao__dropdown').forEach(details => {
+  details.addEventListener('mouseleave', () => {
+    details.removeAttribute('open');
+  });
+});
+
 // Modal de Novidades
 (function () {
   // --------------------- CONFIG ---------------------

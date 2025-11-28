@@ -134,7 +134,7 @@ body {
 .acess-controls {
     position: fixed;
     z-index: 200;
-    margin-top: 30%;
+    margin-top: 25%;
     right: 0;
     height: 65px;
     background-color: var(--cor-fundo-card);
