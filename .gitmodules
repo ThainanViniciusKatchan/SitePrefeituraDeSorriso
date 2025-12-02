@@ -1,0 +1,4 @@
+[submodule "SiteControladoriaGeralDoMunucipio"]
+	path = SiteControladoriaGeralDoMunucipio
+	url = https://github.com/ThainanViniciusKatchan/SiteControladoriaGeralDoMunucipio.git
+	branch = versaoSecretarias
